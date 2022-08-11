@@ -1,0 +1,32 @@
+{
+  "name": "web",
+  "version": "0.0.0",
+  "private": true,
+  "browserslist": {
+    "development": [
+      "last 1 version"
+    ],
+    "production": [
+      "defaults",
+      "not IE 11",
+      "not IE_Mob 11"
+    ]
+  },
+  "dependencies": {
+    "@emotion/react": "^11.10.0",
+    "@mantine/core": "^5.1.1",
+    "@mantine/dates": "^5.1.1",
+    "@mantine/dropzone": "^5.1.1",
+    "@mantine/form": "^5.1.1",
+    "@mantine/hooks": "^5.1.1",
+    "@mantine/modals": "^5.1.1",
+    "@redwoodjs/forms": "2.2.0",
+    "@redwoodjs/router": "2.2.0",
+    "@redwoodjs/web": "2.2.0",
+    "@tabler/icons": "^1.80.0",
+    "dayjs": "^1.11.4",
+    "prop-types": "15.8.1",
+    "react": "17.0.2",
+    "react-dom": "17.0.2"
+  }
+}

@@ -1,0 +1,65 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider      = "prisma-client-js"
+  binaryTargets = "native"
+}
+
+// Define your own datamodels here and run `yarn redwood prisma migrate dev`
+// to create migrations for them and apply to your dev DB.
+// TODO: Please remove the following example:
+model User {
+  id    Int    @id @default(autoincrement())
+  email String @unique
+  name  String
+
+  payments Payment[]
+  invoices Invoice[]
+
+  // INFO: relationships
+  house   House? @relation(fields: [houseId], references: [id])
+  houseId Int?
+}
+
+// TODO: payment, house / real-estates, invoices
+model House {
+  id       Int    @id @default(autoincrement())
+  address  String
+  no_rooms Int
+
+  users    User[]
+  payments Payment[]
+}
+
+model Invoice {
+  id     Int     @id @default(autoincrement())
+  amount Int
+  mounth Int
+  year   Int
+  paid   Boolean @default(false)
+
+  // INFO: relationships
+  user   User @relation(fields: [userId], references: [id])
+  userId Int
+
+  payments Payment[]
+
+}
+
+model Payment {
+  id     Int @id @default(autoincrement())
+  amount Int
+
+  // INFO: relationships
+  invoice   Invoice? @relation(fields: [invoiceId], references: [id])
+  invoiceId Int?
+
+  house   House @relation(fields: [houseId], references: [id])
+  houseId Int
+
+  user   User @relation(fields: [userId], references: [id])
+  userId Int
+}
