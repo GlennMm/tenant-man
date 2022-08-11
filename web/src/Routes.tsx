@@ -19,7 +19,7 @@ const Routes = () => {
   return (
     <Router>
       <Set wrap={DashboardLayout}>
-        <Route path="/admin/dashboard" page={AdminDashboardPage} name="admin/dashboard" />
+        <Route path="/" page={AdminDashboardPage} name="admin/dashboard" />
         <Set wrap={PaymentsLayout}>
           <Route path="/admin/payments/new" page={AdminPaymentNewPaymentPage} name="adminNewPayment" />
           <Route path="/admin/payments/{id:Int}/edit" page={AdminPaymentEditPaymentPage} name="adminEditPayment" />
